@@ -1,2 +1,2 @@
 # Alx_DjangoLearnLab
-Beginning of the Django Project 
+Beginning of the Django Project.
