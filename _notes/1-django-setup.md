@@ -151,21 +151,21 @@ book_store/
 ```
 
 
-**admin.py** : This file is used to register your models with the Django admin interface, which provides a user-friendly way to manage your application’s data through a web interface.
+- **admin.py** : This file is used to register your models with the Django admin interface, which provides a user-friendly way to manage your application’s data through a web interface.
 
-**apps.py:** This file is used to define the configuration and metadata for your app. It contains a Config class that inherits from django.apps.AppConfig and includes metadata such as the app name and label.
-
-
-**migrations/:** This directory is created the first time you run migrations for your app. It stores migration files that keep track of changes to your models, allowing you to evolve your database schema over time.
+- **apps.py:** This file is used to define the configuration and metadata for your app. It contains a Config class that inherits from django.apps.AppConfig and includes metadata such as the app name and label.
 
 
-**models.py:** This file is where you define your data models, which represent the database tables for your application. Models are defined as Python classes that inherit from django.db.models.Model
+- **migrations/:** This directory is created the first time you run migrations for your app. It stores migration files that keep track of changes to your models, allowing you to evolve your database schema over time.
 
 
-**tests.py:** This file is used to write unit tests for your app’s models, views, and other components. Django provides a built-in testing framework to help you write and run tests.
+- **models.py:** This file is where you define your `data models`, which represent the database tables for your application. Models are defined as Python classes that inherit from django.db.models.Model
 
 
-**views.py:** This file contains the view functions that handle HTTP requests and return HTTP responses. Views are responsible for processing user input, interacting with models, and rendering templates.
+- **tests.py:** This file is used to write unit tests for your app’s models, views, and other components. Django provides a built-in testing framework to help you write and run tests.
+
+
+- **views.py:** This file contains the view functions that handle HTTP requests and return HTTP responses. Views are responsible for processing user input, interacting with models, and rendering templates.
 
 
 
