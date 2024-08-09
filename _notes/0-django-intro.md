@@ -14,11 +14,15 @@
 
 
 ## Introduction to Django
-Django is a high-level web framework that enables rapid development of secure and maintainable websites.
+**Django** is a high-level web framework that enables rapid development of secure and maintainable websites.
 
- Built by experienced developers and maintained by a large community of contributors, Django takes care of much of the complexity of web development, so you can focus on writing your app without needing to reinvent the wheel. It is designed to be both powerful and flexible, with the ability to scale complex applications.
+ Built by experienced developers and maintained by a large community of contributors, Django takes care of much of the complexity of web development, so you can focus on writing your app without needing to reinvent the wheel.
 
-It is a robust and full-featured web framework written in Python, one of the most popular programming languages in the world. It was developed to ease the creation of complex, database-driven websites. Its emphasis on reusability and “pluggability” of components, minimal code, low coupling, rapid development, and the principle of don’t repeat yourself (DRY) has made it one of the top choices for web developers.
+It is designed to be both powerful and flexible, with the ability to scale complex applications.
+
+It is a robust and full-featured web framework written in Python, one of the most popular programming languages in the world. It was developed to ease the creation of complex, database-driven websites. 
+
+Its emphasis on reusability and “pluggability” of components, minimal code, low coupling, rapid development, and the principle of don’t repeat yourself (DRY) has made it one of the top choices for web developers.
 
 ## Main Characteristics of Django
 

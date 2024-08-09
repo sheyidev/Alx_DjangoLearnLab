@@ -24,15 +24,15 @@ It covers the installation process, creating a new project, and exploring the es
 
 ## Installing Django
 
-Setting up a Django project is a crucial first step in building a web application. Django provides a command-line utility to create a new project with a predefined structure. Understanding the project structure and the role of each component is essential for efficient development.
+Setting up a Django project is a crucial first step in building a web application. Django provides a command-line utility to create a new project with a predefined structure.
 
+Understanding the project structure and the role of each component is essential for efficient development.
 
 
 As Django is a Python web framework, it requires Python. Hence you must first install Python if you have not yet done so. In addition checkout here to see what Python versions can be used with Django.
 
 
-
-Before creating a new Django project, you need to install Django on your development environment. You can install Django using pip, the Python package installer. Open your command prompt or terminal and run the following command to install the latest version of Django:
+Before creating a new Django project, you need to **install Django on your development environment**. You can install Django using `pip`, the Python package installer. Open your command prompt or terminal and run the following command to install the latest version of Django:
 
 
 `pip install django`
@@ -40,7 +40,8 @@ Before creating a new Django project, you need to install Django on your develop
 Once the installation is complete, you can proceed to create a new Django project.
 
 ## Creating a New Project
-Django provides a command-line utility called django-admin to create a new project.
+Django provides a **command-line utility** called `django-admin` to create a new project.
+
 To create a new project navigate to the directory where you want to create your project and execute the below command by replacing project_name with the desired name for your project.
 
 `django-admin startproject project_name`
@@ -66,8 +67,7 @@ project_name/
 
 **manage.py:** A command-line utility for managing your Django project.
 
-**project_name/:** A Python package directory with 
-project-specific settings and configurations.
+**project_name/:** A Python package directory with project-specific settings and configurations.
 
 **__init__.py:** An empty file that tells Python that this directory should be considered a Python package.
 
@@ -82,17 +82,19 @@ project-specific settings and configurations.
 
 
 ## Running a Django Project
-After setting up a new Django project, you’ll need to run the development server to see your application in action. Django provides a built-in development server that allows you to test and debug your application locally before deploying it to a production environment.
+After setting up a new Django project, you’ll need to run the **development server ** to see your application in action. 
+
+Django provides a built-in development server that allows you to test and debug your application locally before deploying it to a production environment.
 
 
 
-To run the Django development server, first navigate to the root directory of your Django project (the directory containing the `manage.py` file) and run the following command (This command will start the Django development server.):
+`To run the Django development server`, first navigate to the root directory of your Django project (the directory containing the `manage.py` file) and run the following command (This command will start the Django development server.):
 
 `python manage.py runserver`
 
 Once the server is running, you should see output similar to the following:
 
-```md
+```json
 Performing system checks...
 
 System check identified no issues (0 silenced).
@@ -108,19 +110,19 @@ Then open your web browser and visit http://127.0.0.1:8000/ to see the default D
 
 **Note** that the development server is designed for local development and testing purposes only. It should not be used in a production environment.
 
-When you’re ready to deploy your Django application, you’ll need to set up a production-ready web server like Apache or Nginx, along with a WSGI server like Gunicorn or uWSGI.
+When you’re ready to deploy your Django application, you’ll need to set up a production-ready web server like `Apache or Nginx`, along with a `WSGI server like Gunicorn or uWSGI`.
 
 
 
 
 ## Django Apps
-In the Django web framework, a project and an app are related but distinct concepts. 
+In the Django web framework, a **project and an app** are related but distinct concepts. 
 
-A Django project is a collection of settings and configurations for a particular Django web application. It acts as a container for one or more Django apps.
+A Django project is a collection of `settings and configurations` for a particular Django web application. `It acts as a container for one or more Django apps.`
 
- It defines the database settings, installed apps, middleware, templates, and other project-level configurations.
+ `It defines the database settings, installed apps, middleware, templates, and other project-level configurations.`
 
-On the hand, an app in Django is a self-contained, reusable module that represents a specific functionality or feature of your web application. 
+On the hand, an `app in Django is a self-contained, reusable module` that represents a `specific functionality or feature of your web application.` 
 
 A Django project can have multiple apps, each responsible for a specific aspect of the application.
 
@@ -136,7 +138,7 @@ You create a new app within a project using the following command
 
 When you create a new Django app using the above command, Django generates several files within the app directory.
 
-```md
+```py
 book_store/
     __init__.py
     admin.py
@@ -149,21 +151,21 @@ book_store/
 ```
 
 
-admin.py : This file is used to register your models with the Django admin interface, which provides a user-friendly way to manage your application’s data through a web interface.
+**admin.py** : This file is used to register your models with the Django admin interface, which provides a user-friendly way to manage your application’s data through a web interface.
 
-apps.py: This file is used to define the configuration and metadata for your app. It contains a Config class that inherits from django.apps.AppConfig and includes metadata such as the app name and label.
-
-
-migrations/: This directory is created the first time you run migrations for your app. It stores migration files that keep track of changes to your models, allowing you to evolve your database schema over time.
+**apps.py:** This file is used to define the configuration and metadata for your app. It contains a Config class that inherits from django.apps.AppConfig and includes metadata such as the app name and label.
 
 
-models.py: This file is where you define your data models, which represent the database tables for your application. Models are defined as Python classes that inherit from django.db.models.Model
+**migrations/:** This directory is created the first time you run migrations for your app. It stores migration files that keep track of changes to your models, allowing you to evolve your database schema over time.
 
 
-tests.py: This file is used to write unit tests for your app’s models, views, and other components. Django provides a built-in testing framework to help you write and run tests.
+**models.py:** This file is where you define your data models, which represent the database tables for your application. Models are defined as Python classes that inherit from django.db.models.Model
 
 
-views.py: This file contains the view functions that handle HTTP requests and return HTTP responses. Views are responsible for processing user input, interacting with models, and rendering templates.
+**tests.py:** This file is used to write unit tests for your app’s models, views, and other components. Django provides a built-in testing framework to help you write and run tests.
+
+
+**views.py:** This file contains the view functions that handle HTTP requests and return HTTP responses. Views are responsible for processing user input, interacting with models, and rendering templates.
 
 
 
@@ -220,11 +222,11 @@ INSTALLED_APPS = [
 
 ## Migrating and Running Django App
 Now we need to migrate our changes. To do this run the following two commands one after the other
-```md
-python manage.py makemigrations
-python manage.py migrate
 
-```
+`python manage.py makemigrations`
+
+`python manage.py migrate`
+
 ## add picture here 
 
 
