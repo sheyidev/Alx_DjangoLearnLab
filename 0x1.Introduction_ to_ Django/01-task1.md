@@ -11,7 +11,7 @@ Install Django and create a new Django project named LibraryProject. This initia
    
 2. Create Your Django Project:
 
-   - Create a new Django project by running: django-admin startproject LibraryProject.
+   - Create a new Django project by running: `django-admin startproject LibraryProject`.
    - 
 3. Run the Development Server:
 
