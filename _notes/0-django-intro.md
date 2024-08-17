@@ -63,27 +63,29 @@ Django’s architecture is composed of several key components:
 ## Comparison with Other Web Frameworks
 While Django is a popular and powerful web framework, it’s essential to understand how it compares to other widely used web frameworks. Here’s a brief comparison:
 
-**Flask (Python):** Flask is a lightweight and minimalistic Python web framework. Unlike Django’s “batteries-included” approach, Flask is more flexible and allows developers to choose the tools and libraries they need. However, this flexibility comes at the cost of having to configure and set up many components manually.
+- **Flask (Python):** Flask is a lightweight and minimalistic Python web framework. Unlike Django’s “batteries-included” approach, Flask is more flexible and allows developers to choose the tools and libraries they need. However, this flexibility comes at the cost of having to configure and set up many components manually.
 
-**FastAPI (Python):** FastAPI is a modern, fast, and high-performance web framework for building APIs with Python. Unlike Django’s monolithic approach, FastAPI is designed specifically for building APIs and provides automatic data validation and serialization out of the box. FastAPI is often praised for its performance and developer experience.
+- **FastAPI (Python):** FastAPI is a modern, fast, and high-performance web framework for building APIs with Python. Unlike Django’s monolithic approach, FastAPI is designed specifically for building APIs and provides automatic data validation and serialization out of the box. FastAPI is often praised for its performance and developer experience.
 
-**Ruby on Rails (Ruby):** Rails is a full-stack web framework for the Ruby programming language. Like Django, it follows the Model-View-Controller (MVC) architectural pattern and emphasizes Convention over Configuration. However, Rails is more opinionated than Django, which can be seen as an advantage or a disadvantage depending on the project’s requirements.
+- **Ruby on Rails (Ruby):** Rails is a full-stack web framework for the Ruby programming language. Like Django, it follows the Model-View-Controller (MVC) architectural pattern and emphasizes Convention over Configuration. However, Rails is more opinionated than Django, which can be seen as an advantage or a disadvantage depending on the project’s requirements.
 
-**Express.js (Node.js):** Express.js is a minimal and flexible Node.js web application framework. Unlike Django’s monolithic approach, Express.js is more lightweight and modular, allowing developers to include only the required components. However, this modularity also means more manual configuration and setup.
-
-
-**Laravel (PHP):** Laravel is a popular PHP web framework known for its elegance and developer-friendly features. Similar to Django, it follows the Model-View-Controller (MVC) pattern and provides a comprehensive set of tools and libraries. However, Laravel is more focused on providing a modern and expressive syntax, while Django emphasizes simplicity and pragmatism.
+- **Express.js (Node.js):** Express.js is a minimal and flexible Node.js web application framework. Unlike Django’s monolithic approach, Express.js is more lightweight and modular, allowing developers to include only the required components. However, this modularity also means more manual configuration and setup.
 
 
-**ASP.NET (C#):** ASP.NET is a web framework developed by Microsoft for building web applications using the .NET framework. Unlike Django’s “batteries-included” approach, ASP.NET requires more manual configuration and provides a more modular and extensible architecture. ASP.NET is often praised for its performance and integration with other Microsoft technologies.
+- **Laravel (PHP):** Laravel is a popular PHP web framework known for its elegance and developer-friendly features. Similar to Django, it follows the Model-View-Controller (MVC) pattern and provides a comprehensive set of tools and libraries. However, Laravel is more focused on providing a modern and expressive syntax, while Django emphasizes simplicity and pragmatism.
 
 
-**Spring Boot (Java):** Spring Boot is a popular open-source Java web framework that simplifies the setup and configuration of Spring-based applications. Compared to Django, Spring Boot is more lightweight and modular, allowing developers to include only the required components for their application. However, Spring Boot’s flexibility also means more manual configuration and setup.
+- **ASP.NET (C#):** ASP.NET is a web framework developed by Microsoft for building web applications using the .NET framework. Unlike Django’s “batteries-included” approach, ASP.NET requires more manual configuration and provides a more modular and extensible architecture. ASP.NET is often praised for its performance and integration with other Microsoft technologies.
+
+
+- **Spring Boot (Java):** Spring Boot is a popular open-source Java web framework that simplifies the setup and configuration of Spring-based applications. Compared to Django, Spring Boot is more lightweight and modular, allowing developers to include only the required components for their application. However, Spring Boot’s flexibility also means more manual configuration and setup.
 
 
 
 The choice of web framework often depends on factors such as the programming language, project requirements, team expertise, and personal preferences. Django’s “batteries-included” approach and extensive built-in features make it a great choice for developing complex web applications, especially in Python.
 
 Additional Resources
+
 Django Project - https://www.djangoproject.com/start/
+
 Django Web Framework- https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django
