@@ -87,7 +87,7 @@ It supports complex queries, including joins, aggregations, and annotations, mak
 
 ```python
 
-## literral;y the Book class and book objects
+## literrally the Book class and book objects
 # Retrieving all books
 books = Book.objects.all()
 
