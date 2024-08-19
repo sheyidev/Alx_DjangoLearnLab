@@ -68,7 +68,7 @@ The Django ORM (Object-Relational Mapping) provides an `abstraction layer` that 
 
 It `automatically handles tasks` like creating database tables based on model definitions, performing database migrations, and executing CRUD (Create, Read, Update, Delete) operations.
 
-### Benefits of using the Django ORM include:
+## Benefits of using the Django ORM include:
 
 **Database abstraction:** Developers can work with Python objects instead of writing SQL queries directly.
 
@@ -87,7 +87,7 @@ It supports complex queries, including joins, aggregations, and annotations, mak
 
 ```python
 
-## literraluy the Book class and book objects
+## literral;y the Book class and book objects
 # Retrieving all books
 books = Book.objects.all()
 
