@@ -1,15 +1,25 @@
+## views Definition
+Views: Control what a user sees. The view retrieves data from the appropriate model and passes it to a template.
+
 ## Django Views and URL Configuration
 This concept page introduces the concept of views in Django and how they are used to handle HTTP requests and generate responses. 
 
 It covers both `function-based views` and `class-based views`, as well as the `URL configuration` process for mapping URL patterns to corresponding views.
 
-In a Django web application, views play a crucial role in`handling user requests and generating appropriate response`s. 
+In a Django web application, views play a crucial role in`handling user requests and generating appropriate responses. 
 
 ## What are views 
 
 Views are Python functions or classes that `receive HTTP requests`, process the data, and `return HTTP responses`. Django provides two types of views: `function-based views and class-based views`. 
 
 Additionally, Django’s URL configuration system allows you to define URL patterns and map them to the corresponding views.
+
+## My comment
+In summary, what views does is simple:
+
+- It processes http web requests(GET,POST,DELETE, UPDATE) and returns a response.
+- Views response could be - HTML page, a redirect, JSON object or error message
+- views contains logic that interacts with the database
 
 ## Concept Overview
 
@@ -102,6 +112,11 @@ class BookDetailView(DetailView):
     context['average_rating'] = book.get_average_rating() 
 
 ```
+context = super().get_context_data(**kwargs): This line calls the get_context_data method of the parent DetailView class, which returns the default context data (like the Book instance itself).
+
+`context['average_rating'] = book.get_average_rating():`
+
+ This line adds a new key-value pair to the context dictionary. The key is `average_rating`, and the value is the result of calling the get_average_rating() method on the Book instance. This method would presumably calculate and return the average rating for the book.
 
 ## Example 2
 This example shows a `BookUpdateView` that inherits from `UpdateView` and facilitates updating details of a book. 
