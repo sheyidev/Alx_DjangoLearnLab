@@ -58,5 +58,11 @@ class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
+
 ```
+In summary, for User Registrattin we need:
+- A Django class called UserCreationForm for creating new user, including username and passowrd
+- Create view class for handling the logic of the form submitted by tje users and submitting it to database
+
+
 In this example, the `SignUpView` uses the `UserCreationForm` to handle user registration. When a new user is registered, they are redirected to the login page using the `success_url` attribute.
