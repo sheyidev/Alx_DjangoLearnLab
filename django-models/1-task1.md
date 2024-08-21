@@ -1,41 +1,79 @@
-##  Implementing Advanced Model Relationships in Django
+##  Django Views and URL Configuration
 
-**Objective:** Master Django’s ORM capabilities by creating a set of models that demonstrate the use of `ForeignKey`, `ManyToMany`, and `OneToOne` relationships. 
+**Objective:** Develop proficiency in creating both function-based and class-based views in Django, and configuring URL patterns to handle web requests effectively. 
 
-This task will help you understand how to model complex data relationships in a Django project effectively.
+This task will help you understand different ways to define views and manage URL routing in Django.
 
 ## Task Description:
-Duplicate the previous project directory `Introduction_ to_ Django`, rename it to `django-models` and add a new app named `relationship_app` where you’ll define models that showcase complex relationships between entities using `ForeignKey`, `ManyToMany`, and `OneToOne` fields.
+In your existing Django project, enhance the `relationship_app` by adding new views that display information about books and libraries. 
+
+Implement both function-based and class-based views to handle these displays and configure the URL patterns to route these views correctly.
 
 ## Steps:
-1. **Create the `relationship_app` App:**
+1. Implement Function-based View:
 
-    - Within your Django project directory, generate a new app: python manage.py startapp relationship_app.
+    - Create a function-based view in `relationship_app/views.py` that lists all books stored in the database.
+    - This view should render a simple text list of book titles and their authors.
+2. Implement Class-based View:
 
-2. **Define Complex Models in `relationship_app/models.py:`**
+   - Create a class-based view in `relationship_app/views.py` that displays details for a specific library, listing all books available in that library.
+   - Utilize Django’s ListView or DetailView to structure this class-based view.
+3. Configure URL Patterns:
 
-    - Author Model:
-      - `name:` CharField.
-    - Book Model:
-       - `title:` CharField.
-       - `author:` ForeignKey to `Author`.
-    - Library Model:
-       - `name:` CharField.
-       - `books:` ManyToManyField to `Book`.
-    - Librarian Model:
-       - `name:` CharField.
-       - `library:` OneToOneField to `Library.`
-3.  **Apply Database Migrations:**
+   - Edit `relationship_app/urls.py` to include URL patterns that route to the newly created views. Make sure to link both the function-based and class-based views.
+4. Create Templates (Optional for Display):
 
-    - Run migrations to create your model tables: `python manage.py makemigrations relationship_app` followed by `python manage.py migrate.`
- 4. Implement Sample Queries:
-    - Prepare a Python script `query_samples.py` in the `relationship_app` directory. This script should contain the query for each of the following of relationship:
-       - Query all books by a specific author.
-       - List all books in a library.
-       - Retrieve the librarian for a library.
+   - For a more structured output, using the code below as templates for each view to render the information in HTML format instead of plain text.
+
+
+## Template for Listing Books (list_books.html):
+This template will be used by the function-based view to display a list of all books.
+
+```python
+<!-- list_books.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Books</title>
+</head>
+<body>
+    <h1>Books Available:</h1>
+    <ul>
+        {% for book in books %}
+        <li>{{ book.title }} by {{ book.author.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+```
+## Template for Displaying Library Details (library_detail.html):
+
+This template will be used by the class-based view to show details of a specific library, including all books available in that library.
+
+```python
+<!-- library_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Detail</title>
+</head>
+<body>
+    <h1>Library: {{ library.name }}</h1>
+    <h2>Books in Library:</h2>
+    <ul>
+        {% for book in library.books.all %}
+        <li>{{ book.title }} by {{ book.author.name }} (Published {{ book.publication_year }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+```
 
 ## Repo:
 
-- GitHub repository: `Alx_DjangoLearnLab`
-- Directory: `django-models`
-- File: `models.py`, `query_samples.py`
+- GitHub repository: Alx_DjangoLearnLab
+- Directory: django-models
