@@ -1,6 +1,6 @@
 # query_samples.py
 
-from relationship_app.models import Author, Book, Library
+from relationship_app.models import Author, Book, Library, Librarian
 
 def query_books_by_author(author_name):
     """
@@ -25,7 +25,7 @@ def list_all_books_in_library(library_name):
         # Get the library object with the given name
         library = Library.objects.get(name=library_name)
         # Get all books in the library using the related_name 'libraries'
-        books = library.books.all()
+        librarian = Librarian.objects.get(library=library)
         print(f"Books in the {library_name} library: {[book.title for book in books]}")
     except Library.DoesNotExist:
         print(f"No library found with the name: {library_name}")
