@@ -8,8 +8,9 @@ def query_books_by_author(author_name):
     """
     try:
         # Get the author object with the given name
-        author = Author.objects.get(filter=author_name)
+        author = Author.objects.get(name=author_name)
         # Get all books by the author using the related_name 'books'
+        books = Book.objects.filter(author=author)
         books = author.books.all()
         print(f"Books by {author_name}: {[book.title for book in books]}")
     except Author.DoesNotExist:
