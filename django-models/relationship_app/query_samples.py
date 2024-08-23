@@ -8,7 +8,7 @@ def query_books_by_author(author_name):
     """
     try:
         # Get the author object with the given name
-        author = Author.objects.get(name=author_name)
+        author = Author.objects.get(filter=author_name)
         # Get all books by the author using the related_name 'books'
         books = author.books.all()
         print(f"Books by {author_name}: {[book.title for book in books]}")
@@ -46,6 +46,6 @@ def retrieve_librarian_for_library(library_name):
 
 # Example usage of the functions
 if __name__ == "__main__":
-   # query_books_by_author("J.K. Rowling")
-    #list_all_books_in_library("Central Library")
-    #retrieve_librarian_for_library("Central Library")
+# query_books_by_author("J.K. Rowling")
+#list_all_books_in_library("Central Library")
+#retrieve_librarian_for_library("Central Library")
