@@ -3,7 +3,13 @@ This concept page aims to introduce the concept of models in Django, the Django 
 
 It covers the purpose of models, their structure, how they interact with the database using the ORM, and the steps to set up a database connection in Django.
 
+### **My personal Note**
+In Django, models are Python classes that define the structure and behavior of the data in your application.
 
+ They represent the database schema and are used to interact with the database. Each model corresponds to a single table in the database, and each attribute of the model represents a database field.
+
+
+ Django models handle CRUD operations (Create, Read, Update, Delete) and offer an easy-to-use API to interact with the database.
 ## Concept Overview
 ### Topics
 

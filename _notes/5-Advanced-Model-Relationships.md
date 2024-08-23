@@ -98,7 +98,20 @@ class Book(models.Model):
 
 
 ```
+
 In this example, if an `Author` instance is deleted, all associated `Book` instances will also be automatically deleted due to the `on_delete=models.CASCADE` option.
+
+## My explanation
+
+
+`models.ForeignKey(Author, ...):` This creates a foreign key relationship between the Book model and the Author model. A foreign key is a link between two tables, which means each book is associated with a single author.
+
+
+`on_delete=models.CASCADE:` This option specifies that if an Author object is deleted, all Book objects related to that author should also be deleted. It enforces referential integrity by ensuring that no Book can exist without an associated Author.
+
+
+`related_name='books':` This specifies the name of the reverse relation from Author to Book. It allows you to access all books by an author using `author.books.all()`.
+
 
 
 ## Performance Considerations
