@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from .views import list_books, LibraryDetailView, RegisterView
-
+from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', list_books, name='list-books'),  # URL pattern for the function-based view
