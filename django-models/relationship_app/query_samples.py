@@ -13,7 +13,7 @@ def query_books_by_author(author):
   try:
     books_by_author = Author.objects.get(name=author)
     # Filter books by the author object
-    books = Book.objects.filter(author=books_by_author)
+    books = Book.objects.filter(author=author)
 
   except Author.DoesNotExist:
      print(f"No author found with the name: {author}")
