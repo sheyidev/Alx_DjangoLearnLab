@@ -28,5 +28,6 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='relationship_app/logout.html'), name='logout'),
     path('register/', RegisterView.as_view(), name='register'),
     path('register/', views.register, name='register'),  # Use the function-based view `register`
-   
+    path('librarian/', views.librarian_view, name='librarian_view'),
+    path('member/', views.member_view, name='member_view')
 ]
