@@ -8,15 +8,15 @@ from models import Author, Book, Library, Librarian
        - Retrieve the librarian for a library.
 """
 ## filter books by author
-def query_books_by_author(author_name):
+def query_books_by_author(author):
     
   try:
-    books_by_author = Author.objects.get(name=author_name)
+    books_by_author = Author.objects.get(name=author)
     # Filter books by the author object
     books = Book.objects.filter(author=books_by_author)
 
   except Author.DoesNotExist:
-     print(f"No author found with the name: {author_name}")
+     print(f"No author found with the name: {author}")
 
 def list_all_the_books(library_name):
      # Get the library object with the given name
