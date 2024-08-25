@@ -9,4 +9,4 @@ def list_all_books(request):
     """
     books = Book.objects.all()  ## Retrieve all book objects from the database
     context = {'books': books}  # # Pass the books to the template context
-    return render(request, 'relationship_app/book_list.html', context)
+    return render(request, 'relationship_app/list_books.html', context)
