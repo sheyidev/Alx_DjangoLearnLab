@@ -4,7 +4,7 @@ from .models import Book
 from .models import Library
 
 # Create your views here.
-def list_all_books(request):
+def list_books(request):
     """
     A function-based view to list all books with their titles and authors.
     """

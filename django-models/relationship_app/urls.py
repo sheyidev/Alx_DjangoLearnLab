@@ -20,6 +20,6 @@ from .views import list_books, LibraryDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('books/', list_books, name='list-book'),  # URL pattern for the function-based view
+    path('books/', list_books, name='list-books'),  # URL pattern for the function-based view
     path('libraries/<int:pk>/', LibraryDetailView.as_view(), name='library-detail'),  # URL pattern for the class-based view
 ]
