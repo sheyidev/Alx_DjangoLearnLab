@@ -11,5 +11,14 @@ def list_all_books(request):
     context = {'books': books}  # # Pass the books to the template context
     return render(request, 'relationship_app/list_books.html', context)
 
-class specific_library_details(Library):
-     library = Library.books.all()
+
+from django.views.generic import DetailView
+from .models import Library
+
+class LibraryDetailView(DetailView):
+    """
+    A class-based view to display details of a specific library, including all books.
+    """
+    model = Library
+    template_name = 'relationship_app/library_detail.html'
+    context_object_name = 'library'
