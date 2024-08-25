@@ -24,5 +24,5 @@ def list_all_the_books(library_name):
      # Get all books in the library
     books = library.books.all()
 def retrieve_librarian_from_a_lib(librarian_name):
-     Librarian = Book.objects.filter()
-     lib_obj = Library.objects.get(name=librarian_name)
+     librarian = Book.objects.filter()
+     lib_obj = Library.objects.get(name=librarian)
