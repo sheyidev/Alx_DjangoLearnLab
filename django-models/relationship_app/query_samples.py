@@ -11,9 +11,9 @@ from models import Author, Book, Library, Librarian
 def query_books_by_author(author_name):
     
   try:
-    books_by_author = Author.objects.get(name=author_name)
+    author = Author.objects.get(name=author_name)
     # Filter books by the author object
-    books = Book.objects.filter(author=author_name)
+    books = Book.objects.filter(author=author)
 
   except Author.DoesNotExist:
      print(f"No author found with the name: {author}")
