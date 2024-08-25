@@ -18,8 +18,11 @@ def query_books_by_author(author_name):
   except Author.DoesNotExist:
      print(f"No author found with the name: {author_name}")
 
-def list_all_the_books(all_books):
-    books = Book.objects.all()
-
+def list_all_the_books(name):
+     # Get the library object with the given name
+    library = Library.objects.get(name=name)
+     # Get all books in the library
+    books = library.books.all()
 def retrieve_librarian_from_a_lib(librarian_name):
      Librarian = Book.objects.filter()
+     lib_obj = Library.objects.get(name=librarian_name)
