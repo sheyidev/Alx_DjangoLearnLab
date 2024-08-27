@@ -33,8 +33,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'bookshelf',
-    'relationship_app',
+    #'bookshelf',
+    'relationship_app'
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
