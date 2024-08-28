@@ -22,8 +22,8 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('books/', list_books, name='list-books'),  # URL pattern for the function-based view
-    path('libraries/<int:pk>/', LibraryDetailView.as_view(), name='library-detail'),  # URL pattern for the class-based view
+    path('books/', list_books, name='list_books'),  # URL pattern for the function-based view
+    path('libraries/<int:pk>/', LibraryDetailView.as_view(), name='library_detail'),  # URL pattern for the class-based view
     path('login/', auth_views.LoginView.as_view(template_name='relationship_app/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='relationship_app/logout.html'), name='logout'),
     path('register/', RegisterView.as_view(), name='register'),
