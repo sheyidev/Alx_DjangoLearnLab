@@ -16,7 +16,7 @@ def list_books(request):
     """
     books = Book.objects.all()  ## Retrieve all book objects from the database
     context = {'books': books}  # # Pass the books to the template context
-    return render(request, 'relationship_app/templates/list_books.html', context)
+    return render(request, 'relationship_app/list_books.html', context)
 
 
 from django.views.generic import DetailView
