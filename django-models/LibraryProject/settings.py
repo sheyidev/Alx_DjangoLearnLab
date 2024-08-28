@@ -57,8 +57,10 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            "relationship_app/templates/library_detail.html",
-            "list_books.html/templates/library_detail.html"
+            "relationship_app/library_detail.html",
+            "relationship_app/list_books.html",
+            "relationship_app/register.html",
+            "relationship_app/admin_view.html"
 
         ],
         'APP_DIRS': True,
