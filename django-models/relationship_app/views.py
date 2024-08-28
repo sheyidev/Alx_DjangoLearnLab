@@ -27,20 +27,20 @@ class LibraryDetailView(DetailView):
     A class-based view to display details of a specific library, including all books.
     """
     model = Library
-    template_name = 'relationship_app/templates/library_detail.html'
+    template_name = 'relationship_app/library_detail.html'
     context_object_name = 'library'
 
 class RegisterView(View):
     def get(self, request):
         form = UserCreationForm()
-        return render(request, 'relationship_app/templates/register.html', {'form': form})
+        return render(request, 'relationship_app/register.html', {'form': form})
 
     def post(self, request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('login')
-        return render(request, 'relationship_app/templates/register.html', {'form': form})
+        return render(request, 'relationship_app/register.html', {'form': form})
 
 ## DOING THE SAME thing as above
 def register(request):
@@ -52,7 +52,7 @@ def register(request):
     else:
         form = UserCreationForm()
     
-    return render(request, 'relationship_app/templates/register.html', {'form': form})
+    return render(request, 'relationship_app/register.html', {'form': form})
 
 from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import render
@@ -71,12 +71,12 @@ def is_member(user):
 
 @user_passes_test(is_admin)
 def admin_view(request):
-    return render(request, 'relationship_app/templates/admin_view.html')
+    return render(request, 'relationship_app/admin_view.html')
 
 @user_passes_test(is_librarian)
 def librarian_view(request):
-    return render(request, 'relationship_app/templates/librarian_view.html')
+    return render(request, 'relationship_app/librarian_view.html')
 
 @user_passes_test(is_member)
 def member_view(request):
-    return render(request, 'relationship_app/templates/member_view.html')
+    return render(request, 'relationship_app/member_view.html')
