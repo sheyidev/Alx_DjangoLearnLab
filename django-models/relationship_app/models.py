@@ -7,11 +7,14 @@ class Author(models.Model):
 ## ForeignKey: This is a field type in Django that creates a many-to-one relationship with another model. In this context, it means that each Book is associated with one Author, but each Author can be associated with multiple books.
     def __str__(self) -> str:
          return self.name
+    
+    
 class Book(models.Model):
     title = models.CharField(max_length=100)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='books')
     def __str__(self) -> str:
         return self.title
+    
 class Library(models.Model):
      name = models.CharField(max_length=100)
      books = models.ManyToManyField(Book,related_name='libraries')
