@@ -1,6 +1,7 @@
 Django's views and URLs work together to handle HTTP requests and generate responses. They are fundamental components in building web applications with Django. Let’s break down each of them and how they interact.
 
 ### 1. **Django Views**
+- **My Note** - Know this, and know peace. Details of what template is presented is established in the views module. `template_name = 'books/book_detail.html'`
 
 A **view** in Django is a Python function or class that receives a web request and returns a web response. The response could be an HTML page, a redirect, a JSON object, or even an error message. Views contain the logic for processing requests, interacting with the database, and rendering the appropriate template.
 
@@ -17,6 +18,7 @@ A **view** in Django is a Python function or class that receives a web request a
 
 - **Class-Based Views (CBVs):** These are Python classes that provide more structure and functionality. Django provides many generic views, like `DetailView`, `ListView`, `CreateView`, etc., which you can inherit to create common types of views with less code.
 
+- **My note**: Views handle requests, communicates with the model module(database) and sends response back using(rendering). So I need to import the model and generic django class for less codes. 
   ```python
   from django.views.generic import DetailView
   from .models import Book
@@ -40,6 +42,8 @@ Django’s **URL dispatcher** handles mapping URLs to views. This is done in the
 #### **URL Patterns:**
 
 - **Simple URL Pattern:** A URL pattern is defined using Django’s `path()` function, which maps a URL string to a view.
+- **My Note** - Of course, the urls used by clients to send request needs to be properly managed. views has to know the pattern of urls used in sending requests to its class and functions. Hence, the urls are mapped to views in the url settings. 
+- **My Note2** - urls must import views, path and create the url patterns.
 
   ```python
   from django.urls import path
@@ -50,12 +54,14 @@ Django’s **URL dispatcher** handles mapping URLs to views. This is done in the
       path('books/<int:id>/', views.book_detail, name='book_detail'),
   ]
   ```
-
+  - **My-Note** - the endpoint `ipaddress/books` is the url clients use to send GET/POST requests. Url path function needs the `(url_pattern_for_data_in_model, views.function_or_class,name_identifier_for_the_url_pattern)`
+  
+  
   - **`'books/'`**: This is the URL pattern for listing all books.
   - **`views.book_list`**: This is the view function or class that will handle requests to the `'books/'` URL.
   - **`<int:id>/`**: This part of the URL pattern captures a variable from the URL. In this case, it captures an integer that represents the ID of a book and passes it as an argument to the `book_detail` view.
 
-- **Named URLs:** The `name` argument in `path()` is optional but very useful. It allows you to refer to the URL pattern by name in your code, which is helpful when you need to generate URLs dynamically.
+  - **`<Named URLs>`:** The `name` argument in `path()` is optional but very useful. It allows you to refer to the URL pattern by name in your code, which is helpful when you need to generate URLs dynamically.
 
 #### **How URLs and Views Interact:**
 
