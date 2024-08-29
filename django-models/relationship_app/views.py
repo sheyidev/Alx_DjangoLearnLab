@@ -9,7 +9,7 @@ from .models import Library, Book
 from django.utils import timezone
 # Create your views here.
 ## create a function-based view
-def list_all_books_in_database(request):
+def list_books(request):
       books = Book.objects.all()
       #return HttpResponse({books.title, books.author})
       return render(request, 'relationship_app/list_books.html',{'books':books} )
