@@ -28,8 +28,8 @@ def list_all_books_in_libarary(library_name):
     #librarian = Librarian.objects.get(library=library)
    # books_in_the_lib = Librarian.objects.get(library=library)
 
-    books_in_library = Book.objects.all()
-
+    #books_in_library = Book.objects.all()
+    books_in_library = library.books.all()
 
 def retrieve_liberian_from_library(library_name):
     ## Liberian for a libary
