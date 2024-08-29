@@ -22,7 +22,7 @@ books_in_library = books.objects.all()
 
 ## Liberian for a libary
 ## get the librarry instance first
-library_instance = Library.objects.get(library='library_name')
+library_instance = Library.objects.get(name='library_name')
 
 ##use the lib instance to search for the liberian for the lib
 """
