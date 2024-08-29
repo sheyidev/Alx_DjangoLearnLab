@@ -18,7 +18,7 @@ class Library(models.Model):
 
      def __str__(self) -> str:
          return self.name
-class Liberian(models.Model):
+class Librarian(models.Model):
       name = models.CharField(max_length=100)
       library = models.OneToOneField(Library, on_delete=models.CASCADE, related_name='liberian')
       def __str__(self) -> str:
