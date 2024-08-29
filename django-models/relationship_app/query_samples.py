@@ -15,8 +15,8 @@ def query_by_author(author_name):
     ## get the author object with the given name
     author = Author.objects.get(name=author_name)
     ## filter by author becuase of the instance
-    books_by_author = Book.objects.filter(author=author)
-
+    books = Book.objects.filter(author=author)
+    books= author.books.all()
 
 def list_all_books_in_libarary(library_name):
     ## list all books in library
