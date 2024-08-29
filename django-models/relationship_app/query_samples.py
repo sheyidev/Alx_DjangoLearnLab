@@ -26,9 +26,9 @@ def list_all_books_in_libarary(library_name):
     
 # Get all books in the library using the related_name 'libraries'
     #librarian = Librarian.objects.get(library=library)
-    books_in_the_lib = Librarian.objects.get(library=library)
+    #books_in_the_lib = Librarian.objects.get(library=library)
 
-   # books_in_library = books.objects.all()
+    books_in_library = books.objects.all()
 
 
 def retrieve_liberian_from_library(library_name):
