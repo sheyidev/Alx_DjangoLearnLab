@@ -11,7 +11,7 @@ from django.utils import timezone
 ## create a function-based view
 def list_books(request):
       books = Book.objects.all()
-      #return HttpResponse({books.title, books.author})
+      
       return render(request, 'relationship_app/list_books.html',{'books':books} )
 
 ##Create a class-based view in relationship_app/views.py that displays details for a specific library, listing all books available in that library.
@@ -19,7 +19,7 @@ def list_books(request):
 
 class LibraryDetailView(DetailView):
       model = Library
-      #context_object_name = 'library_view' # Name of the context object in the template
+
       template_name = 'relationship_app/library_detail.html'
 
      # def get_template_names(self):
