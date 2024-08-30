@@ -47,14 +47,14 @@ def register(request):
 """
 
 ## Create three separate views to manage content access based on user roles:
-##admin. librarian, member
+## admin. librarian, member
 def admin_view(user):
-     return user.is_authenticate and user.userprofile.role == "Admin"
+     return user.is_authenticated and user.userprofile.role == "Admin"
 
 def librarian_check(user):
-     return user.is_authenticate and user.userprofile.role == "lbrarian"
+     return user.is_authenticated and user.userprofile.role == "lbrarian"
 def member_check(user):
-     return user.is_authenticate and user.userprofile.role == "Member"
+     return user.is_authenticated and user.userprofile.role == "Member"
 
 
 @login_required
