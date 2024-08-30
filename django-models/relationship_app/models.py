@@ -1,7 +1,9 @@
 from django.db import models
 #from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import User
-## resources uused
+from django.dispatch import receiver
+from django.db.models.signals import post_save
+## resources used
 ##https://www.geeksforgeeks.org/how-to-use-user-model-in-django/
 # Create your models here.
 class Author(models.Model):
@@ -45,5 +47,15 @@ class UserProfile(models.Model):
     # Role field with predefined choices
    role = models.CharField(max_length=10, choices=roles_choices)
 
+
    def __str__(self) -> str:
        return f"self.user.username - self.role"
+   
+   @receiver(post_save, sender=User)
+   def create_profile(sender, instance, created, **kwargs):
+       if created:
+           UserProfile.objects.create(user=instance)
+           
+   @receiver(post_save, sender=User)
+   def save_profile(sender, instance, **kwargs):
+       instance.profile.save()
