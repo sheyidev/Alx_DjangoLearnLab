@@ -38,9 +38,9 @@ class Librarian(models.Model):
 class UserProfile(models.Model):
    ## define roles in a tuple,(is this immutable?)
    roles_choices = [
-       ('ADMIN', 'Admin'),
-       ('LIBRARIAN', 'Librarian'),
-       ('MEMBER', 'Member'),
+       ('Admin', 'Admin'),
+       ('Librarian', 'Librarian'),
+       ('Member', 'Member'),
    ]
    ## create a user with ibe-to-one link with User Model
    user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -55,7 +55,7 @@ class UserProfile(models.Model):
    def create_profile(sender, instance, created, **kwargs):
        if created:
            UserProfile.objects.create(user=instance)
-           
+
    @receiver(post_save, sender=User)
    def save_profile(sender, instance, **kwargs):
        instance.profile.save()

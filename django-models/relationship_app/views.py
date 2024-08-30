@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.views.generic.detail import DetailView
 from django.http import HttpResponse
-from .models import Library, Book
+from .models import Library, Book, UserProfile
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .forms import RegistrationForm
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 # Create your views here.
 ## create a function-based view
@@ -45,3 +46,28 @@ def register(request):
 
 """
 
+## Create three separate views to manage content access based on user roles:
+##admin. librarian, member
+def admin_check(user):
+     return user.is_authenticate and user.userprofile.role == "Admin"
+
+def librarian_check(user):
+     return user.is_authenticate and user.userprofile.role == "lbrarian"
+def member_check(user):
+     return user.is_authenticate and user.userprofile.role == "Member"
+
+
+@login_required
+@user_passes_test(admin_check)
+def admin_dashboard(request):
+    return render(request, 'admin_view')
+
+@login_required
+@user_passes_test(librarian_check)
+def librarian_dashboard(request):
+    return render(request, 'librarian_view')
+
+@login_required
+@user_passes_test(member_check)
+def member_dashboard(request):
+    return render(request, 'member_view')
