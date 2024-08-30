@@ -42,6 +42,9 @@ Django comes with a built-in authentication system that provides a set of `model
 
     Django incorporates authentication middleware that `seamlessly associates users` with `incoming requests and grants access` to the authenticated user within `views and templates.`
 
+## my-notes
+ So is the views and template the auth middleware? I dont think so, No.  There is an auth middleware that maps users with their respective requests and grants access to auth user. auth middleware is found in the `settings.py`
+
 3. **Authentication Backends**
 
     Authentication backends handle the process of `verifying user credentials`. Django provides several built-in authentication backends, with the most common being `ModelBackend` for authentication against the default User model.
