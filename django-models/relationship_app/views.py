@@ -10,7 +10,6 @@ from .forms import RegistrationForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic import TemplateView
-from core.mixins import RoleCheckMixin
 
 
 
@@ -53,15 +52,6 @@ def register(request):
 
 ## Create three separate views to manage content access based on user roles:
 ## admin. librarian, member
-
-class AdminView(RoleCheckMixin, TemplateView):
-    template_name = 'admin_dashboard.html'
-    role_required = 'Admin'
-
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return self.handle_no_permission()
-        return super().dispatch(request, *args, **kwargs)
 
 
 
