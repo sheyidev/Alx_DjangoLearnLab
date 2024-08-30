@@ -19,8 +19,8 @@ def list_books(request):
 
 class LibraryDetailView(DetailView):
       model = Library
-
-      template_name = 'relationship_app/library_detail.html'
+      context_object_name = 'library_view'
+      template_name = 'relationship_app/library_details.html'
 
      # def get_template_names(self):
         # Get the template name from the query parameters or use a default
