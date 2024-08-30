@@ -21,10 +21,13 @@ def list_books(request):
 class LibraryDetailView(DetailView):
       model = Library
       context_object_name = 'library_view'
-      template_name = 'library_details.html'
+      template_name = 'relationship/library_details.html'
 
 ## create a user registration form in form.py and reference it in the registration view here
-
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy("login")
+    template_name = "relationship_app/register.html"
 
 
 def register(request):
@@ -36,10 +39,7 @@ def register(request):
             return redirect('profile')  # Redirect to the profile page or another page
     else:
         form = RegistrationForm()
-    return render(request, 'accounts/register.html', {'form': form})
+    return render(request, 'registration/accounts/register.html', {'form': form})
 
 
-class SignUpView(CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy("login")
-    template_name = "relationship_app/register.html"
+
