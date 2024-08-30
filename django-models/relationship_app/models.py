@@ -1,5 +1,8 @@
 from django.db import models
-
+#from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import User
+## resources uused
+##https://www.geeksforgeeks.org/how-to-use-user-model-in-django/
 # Create your models here.
 class Author(models.Model):
     name = models.CharField(max_length=100)
@@ -27,3 +30,20 @@ class Librarian(models.Model):
       def __str__(self) -> str:
          return self.name
       
+## create a UserModel and extend the a one-to-one relationhip with inbuilt User model
+## You want to store additional data in UserProfile, hence using it wothout modyfing the User Model
+
+class UserProfile(models.Model):
+   ## define roles in a tuple,(is this immutable?)
+   roles_choices = [
+       ('ADMIN', 'Admin'),
+       ('LIBRARIAN', 'Librarian'),
+       ('MEMBER', 'Member'),
+   ]
+   ## create a user with ibe-to-one link with User Model
+   user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # Role field with predefined choices
+   role = models.CharField(max_length=10, choices=roles_choices)
+
+   def __str__(self) -> str:
+       return f"self.user.username - self.role"
