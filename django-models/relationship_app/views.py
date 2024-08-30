@@ -29,7 +29,9 @@ class SignUpView(CreateView):
     success_url = reverse_lazy("login")
     template_name = "relationship_app/register.html"
 
-
+"""
+For User registration, is either i use Createview class that does a lot of stuff lile validity
+or use a function like below
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -41,5 +43,5 @@ def register(request):
         form = RegistrationForm()
     return render(request, 'registration/accounts/register.html', {'form': form})
 
-
+"""
 
