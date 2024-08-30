@@ -25,7 +25,7 @@ class LibraryDetailView(DetailView):
 
 ## create a user registration form in form.py and reference it in the registration view here
 class SignUpView(CreateView):
-    form_class = UserCreationForm
+    form_class = UserCreationForm()
     success_url = reverse_lazy("login")
     template_name = "relationship_app/register.html"
 
