@@ -69,7 +69,7 @@ class AdminView(RoleCheckMixin, TemplateView):
         return render(request, 'admin_view')
 
 
-    def librarian_check(user):
+def librarian_check(user):
      return user.is_authenticated and user.userprofile.role == "lbrarian"
 def member_check(user):
      return user.is_authenticated and user.userprofile.role == "Member"
