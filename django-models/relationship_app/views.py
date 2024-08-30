@@ -8,6 +8,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .forms import RegistrationForm
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.mixins import UserPassesTestMixin
+
 
 # Create your views here.
 ## create a function-based view
@@ -48,19 +50,25 @@ def register(request):
 
 ## Create three separate views to manage content access based on user roles:
 ## admin. librarian, member
-def admin_view(user):
-     return user.is_authenticated and user.userprofile.role == "Admin"
+class AdminView(RoleCheckMixin, TemplateView):
+    template_name = 'admin_view.html'
+    role_required = 'Admin'
 
-def librarian_check(user):
+    def admin_view(user):
+        return user.is_authenticated and user.userprofile.role == "Admin"
+    
+    @login_required
+    @user_passes_test(admin_view)
+    def admin_dashboard(request):
+        return render(request, 'admin_view')
+
+
+    def librarian_check(user):
      return user.is_authenticated and user.userprofile.role == "lbrarian"
 def member_check(user):
      return user.is_authenticated and user.userprofile.role == "Member"
 
 
-@login_required
-@user_passes_test(admin_view)
-def admin_dashboard(request):
-    return render(request, 'admin_view')
 
 @login_required
 @user_passes_test(librarian_check)
