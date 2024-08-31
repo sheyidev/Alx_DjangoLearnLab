@@ -16,6 +16,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name='relationship_app/logout.html'), name='logout'),  # Logout view
     path('login/', LoginView.as_view(template_name='relationship_app/login.html'), name='login'),  # Login view
     path('librarian/dashboard/', views.librarian_dashboard, name= 'librarian_dashboard'),
-    path('admin/dashboard/', views.admin_view, name= 'admin_view'),
+    path('admin/dashboard/', views.AdminView.as_view(), name= 'admin_view'),
     path('member/dashboard/', views.member_dashboard, name= 'member_dashboard')
 ]
