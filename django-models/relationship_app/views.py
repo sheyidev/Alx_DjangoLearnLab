@@ -34,20 +34,20 @@ class SignUpView(CreateView):
     success_url = reverse_lazy("login")
     template_name = "relationship_app/register.html"
 
-
-
-
-class AdminView(TemplateView):
-    template_name = 'admin_view.html'
-    role_required = 'Admin'
-
-    def admin_view(user):
-        return user.is_authenticated and user.userprofile.role == "Admin"
+def admin_view(user):
+     return user.is_authenticated and user.userprofile.role == "Admin"
     
-    @login_required
-    @user_passes_test(admin_view)
-    def admin_dashboard(request):
+@login_required
+@user_passes_test(admin_view)
+def admin_dashboard(request):
         return render(request, 'admin_view')
+
+
+#class AdminView(TemplateView):
+  #  template_name = 'admin_view.html'
+#    role_required = 'Admin'
+
+
 
 
 def librarian_check(user):
