@@ -10,7 +10,9 @@ from .forms import RegistrationForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic import TemplateView
-
+from django.contrib.auth.models import Permission
+from django.contrib.auth.decorators import login_required
+#from .decorators import permission_required
 
 
 # Create your views here.
@@ -38,6 +40,7 @@ def admin_view(user):
      return user.is_authenticated and user.userprofile.role == "Admin"
     
 @login_required
+#@permission_required
 @user_passes_test(admin_view)
 def admin_dashboard(request):
         return render(request, 'admin_view')
@@ -47,15 +50,10 @@ def admin_dashboard(request):
   #  template_name = 'admin_view.html'
 #    role_required = 'Admin'
 
-
-
-
 def librarian_check(user):
      return user.is_authenticated and user.userprofile.role == "lbrarian"
 def member_check(user):
      return user.is_authenticated and user.userprofile.role == "Member"
-
-
 
 @login_required
 @user_passes_test(librarian_check)
