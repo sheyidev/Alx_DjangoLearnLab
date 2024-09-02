@@ -52,12 +52,12 @@ def register(request):
 
 @user_passes_test(is_admin)
 def admin_view(request):
-     return render(request, 'admin_view')
+     return render(request, 'relationship_app/admin_view')
 
 @user_passes_test(is_member)
 def member_view(request):
-     return render(request, 'member_view')
+     return render(request, 'relationship_app/member_view')
 
 @user_passes_test(is_librarian)
 def library_view(request):
-     return render(request, 'librarian_view')
+     return render(request, 'relationship_app/librarian_view')
