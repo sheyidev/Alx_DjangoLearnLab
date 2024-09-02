@@ -7,6 +7,7 @@ from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from .forms import RegistrationForm
+from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.decorators import login_required, user_passes_test, permission_required
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic import TemplateView
