@@ -24,3 +24,9 @@ urlpatterns = [
    path('member-view', member_view , name='member_view'),
    path('library-view', library_view, name='library-view'),
 ]
+
+urlpatterns = [
+    path('add_book/', views.add_book, name='add_book'),
+    path('edit_book/<int:pk>/', views.edit_book, name='edit_book'),
+    path('delete_book/<int:pk>/', views.delete_book, name='delete_book'), 
+]
