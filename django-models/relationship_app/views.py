@@ -12,7 +12,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic import TemplateView
 from django.contrib.auth.models import Permission
 from django.contrib.auth.decorators import login_required
-from .test_func import is_admin, is_member, is_librarian
+
 #from .decorators import permission_required
 
 
@@ -43,7 +43,7 @@ def admin_view(user):
 @login_required
 #@permission_required
 #@user_passes_test(admin_view)
-@user_passes_test(is_ddmin)
+@user_passes_test(admin_view)
 def admin_dashboard(request):
         return render(request, 'admin_view')
 
@@ -51,18 +51,19 @@ def admin_dashboard(request):
 #class AdminView(TemplateView):
   #  template_name = 'admin_view.html'
 #    role_required = 'Admin'
-
+def librarian_view(user):
+     return user.is_authenticated and user.userprofile.role == "librarian"
 def librarian_check(user):
      return user.is_authenticated and user.userprofile.role == "librarian"
 def member_check(user):
      return user.is_authenticated and user.userprofile.role == "Member"
 
 @login_required
-@user_passes_test(is_librarian)
+@user_passes_test(librarian_view)
 def librarian_dashboard(request):
     return render(request, 'librarian_view')
 
 @login_required
-@user_passes_test(is_member)
+#@user_passes_test(is_member)
 def member_dashboard(request):
     return render(request, 'member_view')

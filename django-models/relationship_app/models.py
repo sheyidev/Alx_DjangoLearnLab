@@ -37,6 +37,12 @@ class Librarian(models.Model):
 
 class UserProfile(models.Model):
    ## define roles in a tuple,(is this immutable?)
+   class Meta:
+       permissions = [
+           ("Admin", "Admin"),
+           ("Librarian", "Librarian"),
+           ("Member", "Member"),
+       ]
    roles_choices = [
        ('Admin', 'Admin'),
        ('Librarian', 'Librarian'),
