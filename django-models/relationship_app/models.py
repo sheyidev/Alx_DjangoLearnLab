@@ -17,6 +17,12 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=100)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='books')
+    class Meta:
+         permissions = [
+                 ("can_add_book", "Can add book"),
+                ("can_change_book", "Can change book"),
+                ("can_delete_book", "Can delete book"),
+              ]
     def __str__(self) -> str:
         return self.title
     
@@ -37,13 +43,8 @@ class Librarian(models.Model):
 
 class UserProfile(models.Model):
    ## define roles in a tuple,(is this immutable?)
-   class Meta:
-       permissions = [
-           ("Admin", "Admin"),
-           ("Librarian", "Librarian"),
-           ("Member", "Member"),
-       ]
-   roles_choices = [
+
+   ROLES_CHOICES = [
        ('Admin', 'Admin'),
        ('Librarian', 'Librarian'),
        ('Member', 'Member'),
@@ -51,7 +52,7 @@ class UserProfile(models.Model):
    ## create a user with ibe-to-one link with User Model
    user = models.OneToOneField(User, on_delete=models.CASCADE)
     # Role field with predefined choices
-   role = models.CharField(max_length=10, choices=roles_choices)
+   role = models.CharField(max_length=10, choices=ROLES_CHOICES)
 
 
    def __str__(self) -> str:
@@ -61,7 +62,8 @@ class UserProfile(models.Model):
    def create_profile(sender, instance, created, **kwargs):
        if created:
            UserProfile.objects.create(user=instance)
+       instance.userprofile.save()
 
-   @receiver(post_save, sender=User)
-   def save_profile(sender, instance, **kwargs):
-       instance.profile.save()
+  # @receiver(post_save, sender=User)
+  # def save_profile(sender, instance, **kwargs):
+  #     instance.profile.save()

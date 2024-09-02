@@ -12,7 +12,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic import TemplateView
 from django.contrib.auth.models import Permission
 from django.contrib.auth.decorators import login_required
-
+from  .test_func import is_admin, is_librarian, is_member
 #from .decorators import permission_required
 
 
@@ -37,33 +37,27 @@ class SignUpView(CreateView):
     success_url = reverse_lazy("login")
     template_name = "relationship_app/register.html"
 
-def admin_view(user):
-     return user.is_authenticated and user.userprofile.role == "Admin"
-    
-@login_required
-#@permission_required
-#@user_passes_test(admin_view)
-@user_passes_test(admin_view)
-def admin_dashboard(request):
-        return render(request, 'admin_view')
+def register(request):
+     if request.method == 'POST':
+          form = UserCreationForm(request.POST)
+          if form.is_valid:
+               user = form.save()
+               login(request, user)
+               redirect('login')
+     else:
+        form = UserCreationForm()
+        return render(request, 'register.html', {'form': form})
+     
 
 
-#class AdminView(TemplateView):
-  #  template_name = 'admin_view.html'
-#    role_required = 'Admin'
-def librarian_view(user):
-     return user.is_authenticated and user.userprofile.role == "librarian"
-def librarian_check(user):
-     return user.is_authenticated and user.userprofile.role == "librarian"
-def member_check(user):
-     return user.is_authenticated and user.userprofile.role == "Member"
+@user_passes_test(is_admin)
+def admin_view(request):
+     return render(request, 'admin_view')
 
-@login_required
-@user_passes_test(librarian_view)
-def librarian_dashboard(request):
-    return render(request, 'librarian_view')
+@user_passes_test(is_member)
+def member_view(request):
+     return render(request, 'member_view')
 
-@login_required
-#@user_passes_test(is_member)
-def member_dashboard(request):
-    return render(request, 'member_view')
+@user_passes_test(is_librarian)
+def library_view(request):
+     return render(request, 'librarian_view')
