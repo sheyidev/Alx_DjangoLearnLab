@@ -76,7 +76,7 @@ def add_book(request):
           form = BookForm()
           return(request, 'relationship_app/book_form.html', {'form': form})
      
-@permission_required('relationship_app.can_edit_book')
+@permission_required('relationship_app.can_change_book')
 def edit_book(request, pk):
      if request.method == 'POST':
         book = get_object_or_404(Book, instance=book)
