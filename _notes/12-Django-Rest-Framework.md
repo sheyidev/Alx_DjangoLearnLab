@@ -107,5 +107,5 @@ urlpatterns = [
      - `python manage.py runserver`
      
 ![api](https://github.com/sheyidev/Alx_DjangoLearnLab/blob/main/_assets/restapi.png?raw=true)
-![](/Alx_DjangoLearnLab/_assets/restapi.png)
+
 
