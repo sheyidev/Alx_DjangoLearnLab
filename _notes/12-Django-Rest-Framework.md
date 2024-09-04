@@ -44,10 +44,10 @@ django-admin startproject my_project
 cd my_project
 python manage.py startapp my_app
 ```
-- 2 Install the Django REST Framework package:
+- 2. Install the Django REST Framework package:
      - `pip install djangorestframework`
 
-- 3 Add `rest_framework` to your `INSTALLED_APPS` in the `settings.py` file.
+- 3. Add `rest_framework` to your `INSTALLED_APPS` in the `settings.py` file.
  ```python
 INSTALLED_APPS = [
     ...
@@ -55,7 +55,7 @@ INSTALLED_APPS = [
 ]
   
  ```
-- 4 Define your first model in the `models.py` file of your app:
+- 4. Define your first model in the `models.py` file of your app:
 
 ```python
 from django.db import models
@@ -65,7 +65,7 @@ class Book(models.Model):
     author = models.CharField(max_length=100)
     published_date = models.DateField()
 ```
-- 5 Create a serializer for your model in the `serializers.py` file:
+- 5. Create a serializer for your model in the `serializers.py` file:
 
 ```python
 from rest_framework import serializers
@@ -78,7 +78,7 @@ class BookSerializer(serializers.ModelSerializer):
 
 ```
 
-- 6 Define a view for your model in the views.py file:
+- 6. Define a view for your model in the views.py file:
 
 ```python
 from rest_framework import generics
@@ -91,7 +91,7 @@ class BookListCreateAPIView(generics.ListCreateAPIView):
 
 ```
 
- - 7 Add a URL pattern for your view in the urls.py file:
+ - 7. Add a URL pattern for your view in the urls.py file:
  
 ```python
 pythonCopy codefrom django.urls import path
@@ -103,3 +103,9 @@ urlpatterns = [
 
 
 ```
+- 8. Start the development server and access your API endpoint at `http://localhost:8000/my-models/`. Now you have a basic API endpoint that allows you to perform CRUD operations on your model.
+     - `python manage.py runserver`
+     
+![api](https://github.com/sheyidev/Alx_DjangoLearnLab/blob/main/_assets/restapi.png?raw=true)
+![](/Alx_DjangoLearnLab/_assets/restapi.png)
+
