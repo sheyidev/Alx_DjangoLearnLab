@@ -17,7 +17,8 @@ from  .test_func import is_admin, is_librarian, is_member
 from .forms import BookForm
 from .models import Book
 #from .decorators import permission_required
-
+def home(request):
+    return render(request, 'relationship_app/home.html')
 
 # Create your views here.
 ## create a function-based view
@@ -75,7 +76,7 @@ def add_book(request):
                return redirect('list_books')
      else:
           form = BookForm()
-          return(request, 'relationship_app/book_form.html', {'form': form})
+          return render(request, 'relationship_app/book_form.html', {'form': form})
      
 @permission_required('relationship_app.can_change_book')
 def edit_book(request, pk):

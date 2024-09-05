@@ -23,6 +23,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('relationship_app/', include('relationship_app.urls')),
+   # path('', include('relationship_app.urls')), 
     path('bookshelf/', include('bookshelf.urls')),
    path('accounts/profile/',TemplateView.as_view(template_name='accounts/profile.html'),
              name='profile'),

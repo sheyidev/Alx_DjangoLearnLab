@@ -56,7 +56,7 @@ class UserProfile(models.Model):
 
 
    def __str__(self) -> str:
-       return f"self.user.username - self.role"
+       return f"{self.user.username} - {self.role}"
    
    @receiver(post_save, sender=User)
    def create_profile(sender, instance, created, **kwargs):
