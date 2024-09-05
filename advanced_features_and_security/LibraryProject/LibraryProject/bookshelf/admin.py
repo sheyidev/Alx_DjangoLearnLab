@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Book
+from django.contrib.auth.admin import UserAdmin
 
 from .models import CustomUser, CustomerUserAdmin
 # Register your models here.
