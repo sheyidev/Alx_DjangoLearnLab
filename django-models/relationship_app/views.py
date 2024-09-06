@@ -32,8 +32,9 @@ def list_books(request):
 
 class LibraryDetailView(DetailView):
       model = Library
-      context_object_name = 'library_view'
       template_name = 'relationship_app/library_detail.html'
+      context_object_name = 'library_view'
+      
 
 ## create a user registration form in form.py and reference it in the registration view here
 class SignUpView(CreateView):
