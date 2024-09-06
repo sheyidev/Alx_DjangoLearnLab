@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  
+    <title>Add a New Book</title>
+</head>
+<body>
+
+    <h1>This is the book form. Add a New Book. 
+    </h1>
+    <p> The name book to be added has to follow the form fields I specified and form follows the model Book I wrote</p>
+  
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Renders the form fields as paragraph elements -->
+        <button type="submit">Submit</button>
+    </form>
+    
+    <a href="{% url 'list_books' %}">Back to Book List</a>  <!-- Link to go back to the book list -->
+</body>
+</html>
