@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import admin_view, member_view, library_view, home
+from .views import admin_view, member_view, library_view, home, list_books
 from django.views.generic import TemplateView
 from relationship_app.views import SignUpView
 from django.urls import path, include
