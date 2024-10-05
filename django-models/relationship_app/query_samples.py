@@ -4,7 +4,7 @@ from relationship_app.models import Author,Book, Librarian, Library
 def get_author(author_name):
     try:
         author = Author.objects.get(name=author_name)
-        books = Book.objects.get(author=author)
+        books = Book.objects.filter(author=author)
         return books 
 
     except Author.DoesNotExist:
