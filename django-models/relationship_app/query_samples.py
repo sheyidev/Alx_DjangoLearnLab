@@ -12,7 +12,7 @@ def get_author(author_name):
 
 def list_all_books_in_a_lib(library_name):
     try:
-        library = Library.objects.get(library_name)
+        library = Library.objects.get(name=library_name)
         books = library.books.all()
         return books
     except Library.DoesNotExist:
@@ -20,7 +20,7 @@ def list_all_books_in_a_lib(library_name):
     
 def librarian_from_a_lib(library_name):
     try:
-        library = Library.objects.get(library_name)
+        library = Library.objects.get(name=library_name)
         librarian = Librarian.objects.get(library=library)
         return librarian
     except (Librarian.DoesNotExist, Library.DoesNotExist):
