@@ -44,7 +44,8 @@ def register(request):
                redirect('login')
      else:
         form = UserCreationForm()
-        return render(request, 'register.html', {'form': form})
+    
+     return render(request, 'registration/register.html', {'form': form})
      
     
 class CustomerLoginView(LoginView):
