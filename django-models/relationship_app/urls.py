@@ -5,6 +5,7 @@ from .views import CustomerLoginView, home_view
 from django.contrib.auth.views import LogoutView
 #from .views import SignUpView
 from relationship_app import views
+from .views import admin_view, member_view, library_view
 
 
 urlpatterns = [
@@ -16,3 +17,10 @@ urlpatterns = [
       path('logout/', LogoutView.as_view(template_name='relationship_app/logout.html'), name='logout'),
       path('', home_view, name='home'),
 ]     
+
+
+urlpatterns = [
+   path('admin-view/', admin_view, name='admin_view'),
+   path('member-view', member_view , name='member_view'),
+   path('library-view', library_view, name='library_view'),
+]

@@ -7,6 +7,9 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
+from .roles_based import is_admin, is_librarian, is_member
+from django.contrib.auth.decorators import user_passes_test
+
 # Create your views here.
 
 def list_books(request):
@@ -53,3 +56,16 @@ class CustomerLoginView(LoginView):
     success_url = reverse_lazy('list_books')
     def get_success_url(self):
         return reverse_lazy('list_books')  # Redirect to the URL mapped to the name 'home'
+    
+
+@user_passes_test(is_admin)
+def admin_view(request):
+     return render(request, 'relationship_app/admin_view.html')
+
+@user_passes_test(is_member)
+def member_view(request):
+     return render(request, 'relationship_app/member_view.html')
+
+@user_passes_test(is_librarian)
+def library_view(request):
+     return render(request, 'relationship_app/librarian_view.html')
