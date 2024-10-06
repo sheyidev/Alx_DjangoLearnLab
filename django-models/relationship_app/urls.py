@@ -4,6 +4,7 @@ from .views import LibraryDetailView
 from .views import CustomerLoginView, home_view
 from django.contrib.auth.views import LogoutView
 from .views import SignUpView
+from .views import register
 
 
 urlpatterns = [
