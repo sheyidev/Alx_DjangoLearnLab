@@ -29,28 +29,27 @@ class LibraryDetailView(DetailView):
         return context
     
 
-class SignUpView(CreateView):
+#class SignUpView(CreateView):
 
-    form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'registration/register.html'
+ #   form_class = UserCreationForm
+ #   success_url = reverse_lazy('login')
+ #   template_name = 'registration/register.html'
 
 def register(request):
      if request.method == 'POST':
           form = UserCreationForm(request.POST)
-          if form.is_valid:
+          if form.is_valid():
                user = form.save()
                login(request, user)
-               redirect('login')
+               return redirect('login')
      else:
         form = UserCreationForm()
-    
      return render(request, 'registration/register.html', {'form': form})
      
     
 class CustomerLoginView(LoginView):
     template_name = 'registration/login.html'  # Custom login template
-   # redirect_authenticated_user = False  # Redirect if already logged in
-    #success_url = reverse_lazy('list_books')
+    redirect_authenticated_user = False  # Redirect if already logged in
+    success_url = reverse_lazy('list_books')
     def get_success_url(self):
         return reverse_lazy('list_books')  # Redirect to the URL mapped to the name 'home'

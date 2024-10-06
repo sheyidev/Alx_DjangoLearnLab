@@ -3,7 +3,7 @@ from .views import list_books
 from .views import LibraryDetailView
 from .views import CustomerLoginView, home_view
 from django.contrib.auth.views import LogoutView
-from .views import SignUpView
+#from .views import SignUpView
 from relationship_app import views
 
 
