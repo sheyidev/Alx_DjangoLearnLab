@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.contrib.auth.views import LoginView
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from .roles_based import is_admin, is_librarian, is_member
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.decorators import permission_required
@@ -58,7 +58,13 @@ class CustomerLoginView(LoginView):
     success_url = reverse_lazy('list_books')
     def get_success_url(self):
         return reverse_lazy('list_books')  # Redirect to the URL mapped to the name 'home'
-    
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
+
+
+
 
 @user_passes_test(is_admin)
 def admin_view(request):
