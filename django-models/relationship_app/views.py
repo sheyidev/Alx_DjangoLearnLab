@@ -44,11 +44,11 @@ def register(request):
                return redirect('login')
      else:
         form = UserCreationForm()
-     return render(request, 'registration/register.html', {'form': form})
+     return render(request, 'relationship_app/register.html', {'form': form})
      
     
 class CustomerLoginView(LoginView):
-    template_name = 'registration/login.html'  # Custom login template
+    template_name = 'relationship_app/login.html'  # Custom login template
     redirect_authenticated_user = False  # Redirect if already logged in
     success_url = reverse_lazy('list_books')
     def get_success_url(self):
