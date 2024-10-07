@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import post_save
-from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class Author(models.Model):
@@ -35,8 +34,6 @@ class Librarian(models.Model):
      library = models.OneToOneField(Library, on_delete=models.CASCADE, related_name='librarian')
 
 
-
-
 class UserProfile(models.Model):
     ROLES_CHOICES = (
         ('Admin', 'Admin'),
@@ -57,9 +54,3 @@ def create_user_profile(sender, instance, created, **kwargs):
            UserProfile.objects.create(user=instance)
        instance.userprofile.save()
 
-class CustomUser(AbstractUser):
-    date_of_birth = models.DateField(null=True, blank=True)
-    profile_photo = models.ImageField(upload_to='profile_photos/', null=True, blank=True)
-
-    def __str__(self):
-        return self.username
