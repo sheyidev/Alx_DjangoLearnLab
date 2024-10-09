@@ -99,7 +99,11 @@ class UserProfile(models.Model):
     
     def __str__(self):
         return f'{self.user} - {self.role}'
-    
+        return f'str{self.user} - {self.role}'
+## Add a string here wrapped after the return statement
+
+
+
 @receiver(post_save, sender=CustomUser)
 def create_user_profile(sender, instance, created, **kwargs):
        if created:
