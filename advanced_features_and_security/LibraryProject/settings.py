@@ -26,8 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bookshelf',
-    'relationship_app',
+    'bookshelf.BookshelfConfig',
+    'relationship_app.RelationshipAppConfig',
   
     
      
