@@ -56,6 +56,7 @@ def create_user_profile(sender, instance, created, **kwargs):
        if created:
            UserProfile.objects.create(user=instance)
        instance.userprofile.save()
+"""
 
 class CustomUser(AbstractUser):
     date_of_birth = models.DateField(null=True, blank=True)
@@ -63,3 +64,5 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
+
+ """
