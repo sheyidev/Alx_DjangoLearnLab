@@ -175,3 +175,139 @@ In this task, you will build on your existing `social_media_api` by incorporatin
 
 - GitHub repository: `Alx_DjangoLearnLab`
 - Directory: `social_media_api`
+
+
+
+## 3. Implementing Notifications and Likes Functionality
+
+**Objective:** Enhance user engagement in your Social Media API by adding notification and likes functionalities. This task will allow users to like posts and receive notifications for various interactions within the platform.
+
+**Task Description:**
+
+Develop functionalities in your `social_media_api` that enable users to like posts and receive notifications for important activities such as new followers, likes on their posts, or comments. This will make the platform more interactive and social.
+
+**Step 1: Create Like and Notification Models**
+ - Model Definitions:
+    - In the `posts` app, create a `Like` model that tracks which users have liked which posts. This model should have a ForeignKey to `Post` and a ForeignKey to `User.`
+    - In a new app called `notifications`, create a `Notification model `with fields like recipient (ForeignKey to User), actor (ForeignKey to User), verb (describing the action), target (GenericForeignKey to the object), and timestamp.
+
+**Step 2: Implement Like Functionality**
+- **Like System Views:**
+
+  - Create views to handle liking and unliking posts. These views should update the Like model and generate appropriate notifications.
+  - Ensure that these views check for user authentication and prevent users from liking a post multiple times.
+  
+**Step 3: Develop Notification System**
+
+- **Notification Handling:**
+
+   - Set up views and methods to create notifications whenever relevant actions occur, such as a user getting a new follower, someone liking their post, or commenting on their post.
+   - Provide an endpoint for users to fetch their notifications, showcasing unread notifications prominently.
+
+**Step 4: Define URL Patterns for Likes and Notifications**
+
+**Routing Configuration:**
+
+   - Add URL patterns in posts/urls.py for liking and unliking posts, such as /posts/<int:pk>/like/ and /posts/<int:pk>/unlike/.
+   - In notifications/urls.py, set up a route for users to view their notifications, like /notifications/.
+
+**Step 5: Test Likes and Notifications Features**
+- **Testing and Validation:**
+    - Thoroughly test the likes and notifications system to ensure functionality is reliable. Test scenarios include liking a post, unliking a post, receiving notifications for various interactions, and viewing notifications.
+    - Use automated tests and tools like Postman to simulate interactions and verify system responses.
+    
+**Step 6: Documentation**
+**API Documentation:**
+  - Document the functionality and endpoints for the likes and notifications systems. Provide detailed examples of requests and the expected responses.
+   - Explain how users can interact with these features and the benefits they bring to user engagement.
+
+**Deliverables:**
+- Code Files: Models, views, and serializers for likes and notifications.
+- API Endpoint Documentation: Detailed descriptions and usage instructions for new endpoints.
+- Testing Results: Documentation of testing procedures, cases, and outcomes.
+
+Repo:
+
+- GitHub repository: Alx_DjangoLearnLab
+- Directory: social_media_api
+
+
+
+
+
+
+## 4. Deploying the Django REST API to Production
+mandatory
+
+
+**Objective:** Prepare and deploy your Django REST API to a production environment. This task involves configuring the project for deployment, selecting a hosting service, and using tools to manage static files and databases in a production setting.
+
+**Task Description:**
+
+Finalize your social_media_api project for public availability by deploying it to a production server. This will allow real-world testing and interaction, making the project a significant addition to your portfolio.
+
+**Step 1: Prepare the Project for Deployment**
+
+  - **Production Settings:**
+   
+    - Review and adjust the settings.py for production use. This includes setting DEBUG to False, configuring the ALLOWED_HOSTS, and setting up proper database configurations for production.
+    
+    - Configure security settings like SECURE_BROWSER_XSS_FILTER, X_FRAME_OPTIONS, SECURE_CONTENT_TYPE_NOSNIFF, and SECURE_SSL_REDIRECT.
+    
+
+
+**Step 2: Choose a Hosting Service**
+
+- **Hosting Selection:**
+
+     - Select a cloud hosting service suitable for deploying Django applications, such as Heroku, AWS Elastic Beanstalk, or DigitalOcean.
+     - Set up an account and prepare the environment according to the provider’s guidelines for hosting a Django app.
+     
+
+
+**Step 3: Set Up a Web Server and WSGI**
+
+- **Web Server Configuration:**
+   - Configure a web server, such as Gunicorn or uWSGI, to serve your Django app.
+   - Set up Nginx as a reverse proxy to serve static files and handle HTTPS redirection if not automatically managed by your hosting provider.
+   
+
+**Step 4: Manage Static Files and Databases**
+
+- Static and Media Files:
+    - Configure Django to handle static files and media files properly in production using collectstatic and setting up a storage solution like AWS S3 for file hosting.
+    - Ensure your database is properly set up, whether using a managed database service like Amazon RDS or a PostgreSQL instance on your server.
+
+**Step 5: Deploy the Application**
+- **Deployment Process:**
+
+   - Push your code to a repository (e.g., GitHub) if not already done.
+   - Use the hosting service’s deployment methods (e.g., Heroku Git, AWS CodeDeploy) to deploy your application.
+   - Configure environment variables in your hosting service (like secret keys and database URLs).
+   
+**Step 6: Monitor and Maintain the Application**
+
+**Maintenance and Monitoring:**
+
+   - Set up logging and monitoring to keep track of the application’s health and any errors that might occur.
+   - Plan for regular updates and maintenance to keep the software and dependencies up to date.
+
+**Step 7: Documentation and Final Testing**
+- **Documentation and Testing:**
+    - Document the deployment process and any configurations specific to your production environment.
+    - Perform final testing to ensure everything is running as expected in the live environment.
+
+
+**Deliverables:**
+
+**1. Deployment Configuration Files:** Include any scripts or configuration files used for deployment.
+
+**2.Live URL:** Provide the URL to the deployed application.
+
+**3.Deployment Documentation:**Detailed instructions and notes on the deployment process, environment setup, and maintenance plans.
+
+Repo:
+
+GitHub repository: Alx_DjangoLearnLab
+
+Directory: social_media_api
